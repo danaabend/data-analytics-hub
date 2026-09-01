@@ -121,6 +121,16 @@
     color:var(--violet-100);
     max-width:640px;
   }
+  .hero .confluence-link{
+    display:inline-block;
+    margin-top:18px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal-300);
+    text-decoration:none;
+  }
+  .hero .confluence-link:hover{ text-decoration:underline; }
   .comet{ position:absolute; inset:0; pointer-events:none; opacity:0.55; }
 
   /* ---- stat band ---- */
@@ -204,7 +214,16 @@
     background:linear-gradient(90deg, var(--violet-500), var(--teal-500));
   }
   .value-card h3{ font-size:19px; margin-bottom:10px; line-height:1.25; }
-  .value-card p{ color:var(--ink-soft); font-size:14.5px; margin:0; }
+  .value-card p{ color:var(--ink-soft); font-size:14.5px; margin:0 0 14px; }
+  .value-card .explore{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    font-weight:600;
+    text-decoration:none;
+    color:var(--teal-700);
+  }
+  .value-card .explore:hover{ text-decoration:underline; }
+  .values-grid.four{ grid-template-columns:repeat(2,1fr); }
 
   /* ---- shipped: flat list ---- */
   .shipped-list{ display:flex; flex-direction:column; gap:18px; }
@@ -322,7 +341,8 @@
   <h1>Data &amp; Analytics Release Notes</h1>
   <span class="edition">Edition &middot; August 2026</span>
   <p class="tagline">The impact we made this month.</p>
-  <p class="intro">A monthly look at where the Data &amp; Analytics team is focusing its energy, the business value it's unlocking, and what's coming next — tied to our roadmap priorities.</p>
+  <p class="intro">A monthly look at where the Data &amp; Analytics team is focusing its energy, the business value it's unlocking, and what's coming next, tied to our roadmap priorities.</p>
+  <a class="confluence-link" href="https://prenuvo.atlassian.net/wiki/spaces/DS/pages/3695116353/Data+Team+Release+Notes+August+2026" target="_blank" rel="noopener">Read this edition on Confluence &rarr;</a>
 </header>
 
 <div class="stats">
@@ -337,21 +357,30 @@
     <h2>What changed for the business</h2>
     <p class="subline">In plain terms, not ticket numbers.</p>
   </div>
-  <div class="wrap values-grid">
+  <div class="wrap values-grid four">
     <article class="value-card">
       <span class="pillar trust">Trust &amp; Quality</span>
       <h3>Cleared a backlog of 1,000+ stuck patient reports</h3>
-      <p>1,000+ Body Comp reports were stuck in QA for a median of 30+ days — more than 3x longer than other services. We closed the loop with Giuliana's team on how these get actioned, clearing the backlog and giving us an accurate view of what's really outstanding.</p>
+      <p>1,000+ Body Comp reports were stuck in QA for a median of 30+ days, more than 3x longer than other services. We closed the loop with Giuliana's team on how these get actioned, clearing the backlog and giving us an accurate view of what's really outstanding.</p>
+      <a class="explore" href="https://prenuvo-jira.atlassian.net/browse/DA-216" target="_blank" rel="noopener">Explore the update &rarr;</a>
+    </article>
+    <article class="value-card">
+      <span class="pillar trust">Trust &amp; Quality</span>
+      <h3>Caught silent care plan failures before they became longer patient delays</h3>
+      <p>Through the Care Plan Progression workbook, we identified activities across Body Composition, Heart Health, and Brain Health Assessments that were ready for processing but had stopped progressing, some without appearing in the team's work-lists at all. Surfacing these cases prompted a deeper investigation with Clinical Operations and uncovered a broader workflow gap; Product has now scoped a new feature set to more deterministically distinguish services still pending, genuinely failed, or awaiting patient follow-up. Beyond preventing services from silently falling through the cracks, this gives Operations and Finance a stronger foundation for tracking order fulfillment and revenue recognition.</p>
+      <a class="explore" href="https://prenuvo-eng.atlassian.net/browse/HCS-1197" target="_blank" rel="noopener">Explore the update &rarr;</a>
     </article>
     <article class="value-card">
       <span class="pillar efficiency">Operational Efficiency</span>
       <h3>One standard way to measure MRI utilization, clinic to clinic</h3>
-      <p>A new % Nominal Utilization metric makes clinic performance comparable for the first time, already surfacing real signals — like Atlanta's case for extended hours or an added machine.</p>
+      <p>A new % Nominal Utilization metric makes clinic performance comparable for the first time, already surfacing real signals, like Atlanta's case for extended hours or an added machine.</p>
+      <a class="explore" href="https://prenuvo-jira.atlassian.net/browse/DA-254" target="_blank" rel="noopener">Explore the update &rarr;</a>
     </article>
     <article class="value-card">
       <span class="pillar growth">Growth &amp; Retention</span>
       <h3>Self-serve visibility into commercial promo performance</h3>
       <p>Partnerships and Finance can now self-serve Bank of America promo tracking and RMP400 discount usage in Sigma, without ad hoc pulls from the data team.</p>
+      <a class="explore" href="https://prenuvo-jira.atlassian.net/browse/DA-266" target="_blank" rel="noopener">Explore the update &rarr;</a>
     </article>
   </div>
 </section>
@@ -366,35 +395,35 @@
       <span class="pillar efficiency">Operational Efficiency</span>
       <div>
         <h4>Accounting and Product aligned on order modeling</h4>
-        <p>Finance and Accounting signed off on a straw-man design for orders, line items, bundles, and payments — the foundation for revenue recognition Accounting can trust.</p>
+        <p>Finance and Accounting signed off on a straw-man design for orders, line items, bundles, and payments: the foundation for revenue recognition Accounting can trust.</p>
       </div>
     </div>
     <div class="shipped-item">
       <span class="pillar trust">Trust &amp; Quality</span>
       <div>
         <h4>First reliable read on patient-results turnaround</h4>
-        <p>Appropriateness-review turnaround time and MIF completion, sourced from Healthcloud, now unlock tracking of consult completion — a future leading indicator for retention.</p>
+        <p>Appropriateness-review turnaround time and MIF completion, sourced from Healthcloud, now unlock tracking of consult completion: a future leading indicator for retention.</p>
       </div>
     </div>
     <div class="shipped-item">
       <span class="pillar trust">Trust &amp; Quality</span>
       <div>
         <h4>Tighter, more manageable Databricks access control</h4>
-        <p>Audited Databricks users and access paths, migrated direct grants to functional groups, and published revised access-control standards — reducing risk and easing reviews.</p>
+        <p>Audited Databricks users and access paths, migrated direct grants to functional groups, and published revised access-control standards, reducing risk and easing reviews.</p>
       </div>
     </div>
     <div class="shipped-item">
       <span class="pillar efficiency">Operational Efficiency</span>
       <div>
         <h4>New structure for how the team builds</h4>
-        <p>Moved to two-week sprint cycles, published a data team roadmap, and rolled out a development playbook — including an updated PR template and a Cursor-friendly Jira ticket template.</p>
+        <p>Moved to two-week sprint cycles, published a data team roadmap, and rolled out a development playbook, including an updated PR template and a Cursor-friendly Jira ticket template.</p>
       </div>
     </div>
     <div class="shipped-item">
       <span class="pillar efficiency">Operational Efficiency</span>
       <div>
         <h4>Formalizing our KPI framework</h4>
-        <p>Established the Core Metrics and KPI Framework behind the Leadership KPI Dashboard — a first step toward shared governance over how the business tracks itself.</p>
+        <p>Established the Core Metrics and KPI Framework behind the Leadership KPI Dashboard: a first step toward shared governance over how the business tracks itself.</p>
       </div>
     </div>
   </div>
@@ -432,7 +461,7 @@
   <div class="wrap contact-grid">
     <div class="contact-card">
       <h4>Data &amp; Analytics hub</h4>
-      <p>Our full Confluence space — docs, decisions, and context.</p>
+      <p>Our full Confluence space: docs, decisions, and context.</p>
       <a href="https://prenuvo.atlassian.net/wiki/spaces/DS/overview?atl_f=PAGETREE" target="_blank" rel="noopener">Visit the space &rarr;</a>
     </div>
     <div class="contact-card">
